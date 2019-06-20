@@ -10,7 +10,7 @@
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-    <form th:action="@{/search/results}">
+    <form method = "POST" th:action="@{/search/results}">
         <h2>Search by:</h2>
 
         <p>
@@ -37,6 +37,20 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+
+<!--    <ul>-->
+<!--        <li th:each="job : ${jobsFound}" th:text="${job}" ></li>-->
+<!--    </ul>-->
+    <p th:text=" 'Search Type = '+${searchType}"></p>
+    <p th:text=" 'Search Term = '+${searchTerm}"></p>
+    <div th:each="job : ${jobsFound}">
+        <div th:each= "jobEntry : ${job}">
+            <span th:text="${jobEntry.key}+ ': '  "></span>
+            <span th:text="${jobEntry.value}"></span>
+        </div>
+        <p>---------------------------------------------------------</p>
+
+    </div>
 
 </div>
 
