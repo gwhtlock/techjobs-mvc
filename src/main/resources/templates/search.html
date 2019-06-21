@@ -43,13 +43,29 @@
 <!--    </ul>-->
     <p th:text=" 'Search Type = '+${searchType}"></p>
     <p th:text=" 'Search Term = '+${searchTerm}"></p>
-    <div th:each="job : ${jobsFound}">
-        <div th:each= "jobEntry : ${job}">
-            <span th:text="${jobEntry.key}+ ': '  "></span>
-            <span th:text="${jobEntry.value}"></span>
-        </div>
-        <p>---------------------------------------------------------</p>
 
+<!--    <div th:fragment="joblist">-->
+<!--        <div th:each="job : ${jobsFound}">-->
+<!--            <div th:each= "jobEntry : ${job}">-->
+<!--                <span th:text="${jobEntry.key}+ ': '  "></span>-->
+<!--                <span th:text="${jobEntry.value}"></span>-->
+<!--            </div>-->
+<!--            <p>-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
+
+<!--        </div>-->
+<!--    </div>-->
+
+    <div th:fragment="jobListTable">
+        <div th:each="job : ${jobsFound}">
+           <table class="job-listing">
+               <tr th:each = "jobEntry : ${job}">
+                   <td th:text = "${jobEntry.key}+ ': '+${jobEntry.value}"></td>
+               </tr>
+           </table>
+            <br />
+            <br />
+
+        </div>
     </div>
 
 </div>

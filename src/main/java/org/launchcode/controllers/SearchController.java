@@ -40,7 +40,7 @@ public class SearchController {
 
         ArrayList<HashMap<String, String>> jobsFound = new ArrayList<>();
 
-        if(searchType == "all"){
+        if(searchType.equals("all")){
 
             jobsFound = JobData.findByValue(searchTerm);
 
